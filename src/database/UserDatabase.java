@@ -69,10 +69,10 @@ public abstract class UserDatabase {
 
     /**
      * removes user from database
-     * @param id int
+     * @param email String
      */
-    public static void removeUser(int id) {
-        connection.modifyDB("DELETE FROM users WHERE id="+ (id+1));
+    public static void removeUser(String email) {
+        connection.modifyDB("DELETE FROM users WHERE email='" + email + "'");
     }
 
     /**
@@ -95,11 +95,11 @@ public abstract class UserDatabase {
 
     /**
      * returns user name from database
-     * @param id int
+     * @param email String
      * @return String
      */
-    public static String getUserName(int id) {
-        ResultSet query = connection.queryDB("SELECT name FROM users WHERE id=" + (id+1));
+    public static String getUserName(String email) {
+        ResultSet query = connection.queryDB("SELECT name FROM users WHERE email='" + email + "'");
         try {
             return query.getString("name");
         } catch (SQLException e) {
@@ -109,11 +109,11 @@ public abstract class UserDatabase {
 
     /**
      * returns user age from database
-     * @param id int
+     * @param email String
      * @return int
      */
-    public static int getUserAge(int id) {
-        ResultSet query = connection.queryDB("SELECT age FROM users WHERE id=" + (id+1));
+    public static int getUserAge(String email) {
+        ResultSet query = connection.queryDB("SELECT age FROM users WHERE email='" + email + "'");
         try {
             return query.getInt("age");
         } catch (SQLException e) {
@@ -123,11 +123,11 @@ public abstract class UserDatabase {
 
     /**
      * returns user email from database
-     * @param id int
+     * @param email String
      * @return String
      */
-    public static String getUserEmail(int id) {
-        ResultSet query = connection.queryDB("SELECT email FROM users WHERE id=" + (id+1));
+    public static String getUserEmail(String email) {
+        ResultSet query = connection.queryDB("SELECT email FROM users WHERE email='" + email + "'");
         try {
             return query.getString("email");
         } catch (SQLException e) {

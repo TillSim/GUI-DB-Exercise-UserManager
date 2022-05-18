@@ -1,38 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e74720f9-5d4c-4fd8-9e3b-ae8eb3c10b16" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/bcrypt_0_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI-DB-Exercise-UserManager.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/logout.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/set.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/bcrypt-0.9.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/bytes-1.3.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/sqlite-jdbc-3.36.0.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/UserDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/ConsoleLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/DatabaseHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/EncryptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/FileHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/components/Button.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/components/Label.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/components/LoginPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/components/MainPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/components/NumberTextField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/components/PasswordField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/components/TextField.java" afterDir="false" />
+    <list default="true" id="e74720f9-5d4c-4fd8-9e3b-ae8eb3c10b16" name="Changes" comment="initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/UserDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/UserDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/components/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/components/MainPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +64,14 @@
       <option name="presentableId" value="Default" />
       <updated>1652308560770</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1652894359312</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652894359312</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -104,5 +84,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>

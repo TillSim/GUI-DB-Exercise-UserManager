@@ -50,7 +50,7 @@ public class MainPanel extends JPanel {
         logoutBTN.addActionListener(e -> parent.switchToLoginPanel());
 
         removeBTN.addActionListener(e -> {
-            UserDatabase.removeUser(userList.getSelectedIndex());
+            UserDatabase.removeUser(userList.getSelectedValue());
             userList.setModel(UserDatabase.getUsers());
         });
 
@@ -96,9 +96,9 @@ public class MainPanel extends JPanel {
      * fills name and age fields with corresponding records
      */
     private void fillFields() {
-        nameTF.setText(UserDatabase.getUserName(userList.getSelectedIndex()));
-        ageTF.setValue(UserDatabase.getUserAge(userList.getSelectedIndex()));
-        emailTF.setText(UserDatabase.getUserEmail(userList.getSelectedIndex()));
+        nameTF.setText(UserDatabase.getUserName(userList.getSelectedValue()));
+        ageTF.setValue(UserDatabase.getUserAge(userList.getSelectedValue()));
+        emailTF.setText(UserDatabase.getUserEmail(userList.getSelectedValue()));
         passwordPF.setText("");
     }
 
