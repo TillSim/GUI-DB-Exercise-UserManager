@@ -18,5 +18,6 @@
 - [SQLite JDBC (3.36.0.3)](https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc)
 - [BCrypt (0.9.0)](https://mvnrepository.com/artifact/at.favre.lib/bcrypt)
 - [Bytes (1.3.0)](https://mvnrepository.com/artifact/org.apache.tuweni/bytes) (dependency of BCrypt)
+- [DatabaseHandler](https://github.com/TillSim/HelperClass-DatabaseHandler)
 - [ConsoleLogger](https://github.com/TillSim/HelperClass-ConsoleLogger)
 - [Filehandler](https://github.com/TillSim/HelperClass-FileHandler)
