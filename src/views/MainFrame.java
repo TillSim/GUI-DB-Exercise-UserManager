@@ -44,6 +44,7 @@ public class MainFrame extends JFrame {
         add(loginPanel = new LoginPanel(this));
         revalidate();
         setTitle("Login");
+        UserDatabase.setSignedUser("");
     }
 
     /**
@@ -54,7 +55,7 @@ public class MainFrame extends JFrame {
         getContentPane().removeAll();
         add(mainPanel = new MainPanel(this));
         revalidate();
-        setTitle("Administration");
+        setTitle("Administration  [ " + UserDatabase.getSignedUser() + " ]");
     }
 
 }

@@ -13,6 +13,8 @@ import java.sql.SQLException;
 public abstract class UserDatabase {
 
     private static DatabaseHandler connection;
+    private static String signedUser = "";
+    private static final String ADMINEMAIL = "admin@usermanager.com";
 
 
     /**
@@ -33,23 +35,27 @@ public abstract class UserDatabase {
     }
 
     /**
-     * adds user to database if it does not exist already
+     * adds user to database, if it does not exist already
      * @param name String
      * @param age int
      * @param email String
      * @param password String
      */
     public static void addUser(String name, int age, String email, String password) {
-        try {
-            if(connection.queryDB("SELECT * FROM users WHERE email= '" + email + "'").next()) {
-                JOptionPane.showMessageDialog(null, "User Already Exists");
-            } else {
-                connection.modifyDB("INSERT INTO users (name, age, email, password) VALUES (" +
-                                                 "'" + name + "', " + age + ", '" + email + "', '" + EncryptionHandler.bcryptHash(password) + "')");
+        String signedUser = UserDatabase.getSignedUser();
+
+        if(signedUser.equals("") || signedUser.equals(ADMINEMAIL)){
+            try {
+                if(connection.queryDB("SELECT * FROM users WHERE email= '" + email + "'").next()) {
+                    JOptionPane.showMessageDialog(null, "User Already Exists");
+                } else {
+                    connection.modifyDB("INSERT INTO users (name, age, email, password) VALUES (" +
+                                                     "'" + name + "', " + age + ", '" + email + "', '" + EncryptionHandler.bcryptHash(password) + "')");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } else {JOptionPane.showMessageDialog(null, "Log In As Admin To Add New Users");}
     }
 
     /**
@@ -58,8 +64,8 @@ public abstract class UserDatabase {
     public static void addDefaultUser() {
         try {
             if(!connection.queryDB("SELECT * FROM users").next()) {
-                addUser("Admin", 99, "admin@usermanager.com", "admin");
-                JOptionPane.showMessageDialog(null, "Added Default User (email:'admin@usermanager.com' | pw:'admin')");
+                addUser("Admin", 99, ADMINEMAIL, "admin");
+                JOptionPane.showMessageDialog(null, "Added Default User (email:'" + ADMINEMAIL + "' | pw:'admin')");
 
             }
         } catch (SQLException e) {
@@ -68,11 +74,54 @@ public abstract class UserDatabase {
     }
 
     /**
+     * updates user with password
+     * @param name String
+     * @param age int
+     * @param email String
+     * @param password String
+     */
+    public static void updateUser(String name, int age, String email, String password) {
+        String signedUser = UserDatabase.getSignedUser();
+
+        if(signedUser.equals(ADMINEMAIL) || signedUser.equals(email)){
+            try {
+                if(connection.queryDB("SELECT * FROM users WHERE email= '" + email + "'").next()) {
+                    connection.modifyDB("UPDATE users SET name = '" + name + "'," + " age = '" + age + "'," + " password = '" + EncryptionHandler.bcryptHash(password) + "' WHERE email = '" + email + "'");
+                } else {JOptionPane.showMessageDialog(null, "User Not In Database");}
+            } catch (SQLException e) {JOptionPane.showMessageDialog(null, "User Not In Database (EXCEPTION)");}
+        } else {JOptionPane.showMessageDialog(null, "Log In As Admin To Update Other Users");}
+    }
+
+    /**
+     * updates user without password
+     * @param name String
+     * @param age int
+     * @param email String
+     */
+    public static void updateUser(String name, int age, String email) {
+        String signedUser = UserDatabase.getSignedUser();
+
+        if(signedUser.equals(ADMINEMAIL) || signedUser.equals(email)){
+            try {
+                if(connection.queryDB("SELECT * FROM users WHERE email= '" + email + "'").next()) {
+                    connection.modifyDB("UPDATE users SET name = '" + name + "'," + " age = '" + age + "' WHERE email = '" + email + "'");
+                } else {JOptionPane.showMessageDialog(null, "User Not In Database");}
+            } catch (SQLException e) {JOptionPane.showMessageDialog(null, "User Not In Database (EXCEPTION)");}
+        } else {JOptionPane.showMessageDialog(null, "Log In As Admin To Update Other Users");}
+    }
+
+    /**
      * removes user from database
      * @param email String
      */
     public static void removeUser(String email) {
-        connection.modifyDB("DELETE FROM users WHERE email='" + email + "'");
+        String signedUser = UserDatabase.getSignedUser();
+
+        if(signedUser.equals(ADMINEMAIL)) {
+            if(!email.equals(ADMINEMAIL)) {
+                connection.modifyDB("DELETE FROM users WHERE email='" + email + "'");
+            } else {JOptionPane.showMessageDialog(null, "You Can Not Remove The Admin User");}
+        } else {JOptionPane.showMessageDialog(null, "Log In As Admin To Remove Users");}
     }
 
     /**
@@ -156,4 +205,12 @@ public abstract class UserDatabase {
         return false;
     }
 
+
+    public static String getSignedUser() {
+        return signedUser;
+    }
+
+    public static void setSignedUser(String signedUser) {
+        UserDatabase.signedUser = signedUser;
+    }
 }

@@ -20,7 +20,8 @@ public class MainPanel extends JPanel {
     JTextField emailTF = new TextField(25, 240, 275);
     JLabel passwordLBL = new Label(25,290, 275, "Password");
     JPasswordField passwordPF = new PasswordField(25, 315, 275, "5 characters minimum");
-    JButton addBTN = new Button(25, 390,275,"Add User", "./img/set.png");
+    JButton addBTN = new Button(350, 390, 200, "Add User", "./img/set.png");
+    JButton updateBTN = new Button(25, 390,275,"Update User", "./img/reload.png");
     JButton removeBTN = new Button(350, 25, 200, "Remove User", "./img/delete.png");
     JButton logoutBTN = new Button(25, 25, 275, "Logout", "./img/logout.png");
 
@@ -32,7 +33,7 @@ public class MainPanel extends JPanel {
         setBackground(Color.darkGray);
 
         userList = new JList<>(UserDatabase.getUsers());
-        userList.setBounds(350,100,200, 340);
+        userList.setBounds(350,100,200, 265);
         add(userList);
 
         add(nameLBL);
@@ -45,6 +46,7 @@ public class MainPanel extends JPanel {
         add(passwordPF);
         add(addBTN);
         add(removeBTN);
+        add(updateBTN);
         add(logoutBTN);
 
         logoutBTN.addActionListener(e -> parent.switchToLoginPanel());
@@ -54,8 +56,21 @@ public class MainPanel extends JPanel {
             userList.setModel(UserDatabase.getUsers());
         });
 
+        updateBTN.addActionListener(e -> {
+            if(String.valueOf(passwordPF.getPassword()).length() == 0) {
+                if(checkFields(nameTF, ageTF, emailTF)) {
+                    UserDatabase.updateUser(nameTF.getText(), Integer.parseInt(ageTF.getValue().toString()), emailTF.getText());
+                }
+            } else {
+                if(checkFields(nameTF, ageTF, emailTF, passwordPF)) {
+                    UserDatabase.updateUser(nameTF.getText(), Integer.parseInt(ageTF.getValue().toString()), emailTF.getText(), String.valueOf(passwordPF.getPassword()));
+                }
+            }
+            userList.setModel(UserDatabase.getUsers());
+        });
+
         addBTN.addActionListener(e -> {
-            if(checkFields()) {
+            if(checkFields(nameTF, ageTF, emailTF, passwordPF)) {
                 UserDatabase.addUser(nameTF.getText(), Integer.parseInt(ageTF.getValue().toString()), emailTF.getText(), String.valueOf(passwordPF.getPassword()));
             }
             userList.setModel(UserDatabase.getUsers());
@@ -70,9 +85,13 @@ public class MainPanel extends JPanel {
 
     /**
      * checks all input fields for correct input format
+     * @param nameTF TextField
+     * @param ageTF NumberTextField
+     * @param emailTF TextField
+     * @param passwordPF PasswordField
      * @return boolean
      */
-    private boolean checkFields() {
+    private boolean checkFields(JTextField nameTF, JFormattedTextField ageTF, JTextField emailTF, JPasswordField passwordPF) {
         if(nameTF.getText().isEmpty() || !nameTF.getText().matches("^[A-Z][a-z]*")) {
             JOptionPane.showMessageDialog(null, "Invalid Name");
             return false;
@@ -87,6 +106,29 @@ public class MainPanel extends JPanel {
         }
         if(String.valueOf(passwordPF.getPassword()).length() < 5) {
             JOptionPane.showMessageDialog(null, "Invalid Password");
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * checks all input field BUT password field for correct format
+     * @param nameTF TextField
+     * @param ageTF NumberTextField
+     * @param emailTF TextField
+     * @return boolean
+     */
+    private boolean checkFields(JTextField nameTF, JFormattedTextField ageTF, JTextField emailTF) {
+        if(nameTF.getText().isEmpty() || !nameTF.getText().matches("^[A-Z][a-z]*")) {
+            JOptionPane.showMessageDialog(null, "Invalid Name");
+            return false;
+        }
+        if(Integer.parseInt(ageTF.getValue().toString()) <= 0) {
+            JOptionPane.showMessageDialog(null, "Invalid Age");
+            return false;
+        }
+        if(emailTF.getText().isEmpty() || !emailTF.getText().matches("[a-z0-9]+[_a-z0-9\\.-]*[a-z0-9]+@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})")) {
+            JOptionPane.showMessageDialog(null, "Invalid Email");
             return false;
         }
         return true;

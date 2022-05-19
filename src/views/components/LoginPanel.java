@@ -34,6 +34,7 @@ public class LoginPanel extends JPanel {
 
         loginBTN.addActionListener(e -> {
             if(UserDatabase.isLoginValid(emailTF.getText(), String.valueOf(passwordPF.getPassword()))) {
+                UserDatabase.setSignedUser(emailTF.getText());
                 parent.switchToMainPanel();
             } else {passwordPF.setText("");}
         });

@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e74720f9-5d4c-4fd8-9e3b-ae8eb3c10b16" name="Changes" comment="initial commit">
+    <list default="true" id="e74720f9-5d4c-4fd8-9e3b-ae8eb3c10b16" name="Changes" comment="fixed issue: query condition">
+      <change afterPath="$PROJECT_DIR$/img/preview/preview_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/preview/preview_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/reload.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/preview/preview1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/preview/preview2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/UserDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/UserDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/components/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/components/LoginPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/components/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/components/MainPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,17 +38,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/Coding/Java/GUI-DB-Exercise-UserManager",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Coding/Java/GUI-DB-Exercise-UserManager&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -71,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652894359312</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixed issue: query condition">
+      <created>1652900555910</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652900555910</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,6 +102,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="fixed issue: query condition" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed issue: query condition" />
   </component>
 </project>

@@ -1,14 +1,15 @@
 # UserManager
 **UserManager** is a demo project for testing various Swing/AWT objects and SQLite in Java.
 
-![Preview1](./img/preview/preview1.png)
-![Preview2](./img/preview/preview2.png)
+![Preview1](./img/preview/preview_1.png)
+![Preview2](./img/preview/preview_2.png)
 
 ---
 
 ## Features
 - login with user
-- create/delete user
+- add/delete/update user
+- basic privilege system (users can update themselves ; admin can update/add/remove all users)
 - user database handling via SQLite
 - encryption of user passwords via BCrypt
 - input checks with regular expressions
